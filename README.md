@@ -12,6 +12,7 @@ Andrew x 2, Everett, and Sean's Project
 ### Group decisions:
 
 Created UML model, decided on group design
+
 One functionality for first Milestone: owners create and edit books, add them to a database
 
 ## 2021-03-10 Meeting Notes
