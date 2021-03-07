@@ -1,5 +1,5 @@
 # SYSC-4806
-Andrew x 2, Everett, and Sean's Project
+Andrew Dybka, Andrew Foster, Everett, and Sean's Project
 
 ## 2021-03-07 Meeting Notes
 |        | What have I done | What will I do  | What is holding me back |
