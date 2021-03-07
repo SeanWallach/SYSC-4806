@@ -5,15 +5,14 @@ Andrew x 2, Everett, and Sean's Project
 |        | What have I done | What will I do  | What is holding me back |
 | ------ |:----------------:|-----:|-----:|
 | Andrew |  |  | |
-| Andrew |  |  | |
-| Sean   |  |  | |
+| Andrew | Drew UML diagram |  | |
+| Sean   | Set up github repo |  | |
 | Everett|  |  | |
   
 ### Group decisions:
 
-Plan of attack for Wednesday
-
-Draw diagram 
+Created UML model, decided on group design
+One functionality for first Milestone: owners create and edit books, add them to a database
 
 ## 2021-03-10 Meeting Notes
 |        | What have I done | What will I do  | What is holding me back |
