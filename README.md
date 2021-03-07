@@ -1,36 +1,20 @@
-# SYSC-4806
-Andrew Dybka, Andrew Foster, Everett, and Sean's Project
+Milestone 1 Task:
+    
+   Create basic functionalities of the Amazin bookstore, to allow user to get a feel for the system.
 
-## 2021-03-07 Meeting Notes
-|        | What have I done | What will I do  | What is holding me back |
-| ------ |:----------------:|-----:|-----:|
-| Andrew |  |  | |
-| Andrew | Drew UML diagram |  | |
-| Sean   | Set up github repo |  | |
-| Everett|  |  | |
-  
-### Group decisions:
+Andrew Dybka
 
-Created UML model, decided on group design
+    Responsible for the Implementaion of
 
-One functionality for first Milestone: owners create and edit books, add them to a database
+Andrew Foster
 
-## 2021-03-10 Meeting Notes
-|        | What have I done | What will I do  | What is holding me back |
-| ------ |:----------------:|-----:|-----:|
-| Andrew |  |  | |
-| Andrew |  |  | |
-| Sean   |  |  | |
-| Everett|  |  | |
+    Implementation of Travis CI build and Heroku application.
+    
+Everett Soldaat
 
-### Group decisions:
+    Implementation of 
 
-## 2021-03-14 Meeting Notes
-|        | What have I done | What will I do  | What is holding me back |
-| ------ |:----------------:|-----:|-----:|
-| Andrew |  |  | |
-| Andrew |  |  | |
-| Sean   |  |  | |
-| Everett|  |  | |
+Sean Wallach
 
-### Group decisions:
+    Implementation of 
+
