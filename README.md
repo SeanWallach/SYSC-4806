@@ -10,7 +10,9 @@ Andrew x 2, Everett, and Sean's Project
 | Everett|  |  | |
   
 ### Group decisions:
+
 Plan of attack for Wednesday
+
 Draw diagram 
 
 ## 2021-03-10 Meeting Notes
