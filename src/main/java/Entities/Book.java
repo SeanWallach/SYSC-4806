@@ -12,6 +12,7 @@ public class Book {
     private long ISBN;
 
     private String name;
+    private String picture;
     private String description;
     private String author;
     private String publisher;
@@ -71,5 +72,11 @@ public class Book {
     public Book(long ISBN, String name){
         this.ISBN = ISBN;
         this.name = name;
+    }
+    public Book(String name, String description, String author, String publisher){
+        this.name = name;
+        this.description = description;
+        this.author = author;
+        this.publisher = publisher;
     }
 }

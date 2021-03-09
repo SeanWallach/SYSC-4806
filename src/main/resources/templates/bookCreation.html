@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <h1>Create New Book</h1>
+    <link href="../static/css/addBookview.css" rel="stylesheet" th:href="@{/css/addBookview.css}"/>
+
+</head>
+<body>
+
+
+<fieldset>
+
+    <form th:action="@{/createBook}" th:object="${newBook}" method="post">
+        <p> <em>Please fill in the information of the book you would like to publish: </em></p>
+
+        <p><label>Title: </label><input type="text" placeholder="" id="name" name="name" /></p>
+        <p><label>Author: </label><input type="text" placeholder=""id="author" name="author" /></p>
+        <p><label>Publisher: </label><input type="text" placeholder="" id="publisher" name="publisher" /></p>
+        <p><label>ISBN: </label><input type="number" placeholder="" id="ISBN" name="ISBN" /></p>
+        <p><label>Genre: </label><input type="text" placeholder="" id="genre" name="genre" /></p>
+        <p><label>Picture Link: </label><input type="url" id="picture" name="picture" /></p>
+        <p><label>Cost: </label> <input type="number" name="cost" id="cost" placeholder="0.00"/></p>
+        <p><label>Stock: </label><input type="number" placeholder="0" id="inventory" name="inventory" /></p>
+        <p><label>Description: </label><textarea rows="6" style="resize:none" placeholder="Enter the book's description" id="description" name="description" ></textarea></p>
+        <button type="submit">Add</button>
+    </form>
+</fieldset>
+
+
+
+
+</body>
+</html>
