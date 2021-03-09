@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <h1>Create New Book</h1>
-    <link href="../static/css/addBookview.css" rel="stylesheet" th:href="@{/css/addBookview.css}"/>
-
 </head>
 <body>
 
 
 <fieldset>
 
-    <form th:action="@{/createBook}" th:object="${newBook}" method="post">
+    <form th:action="@{/createBook}" th:object="${Book}" method="post">
         <p> <em>Please fill in the information of the book you would like to publish: </em></p>
 
         <p><label>Title: </label><input type="text" placeholder="" id="name" name="name" /></p>
@@ -22,7 +21,7 @@
         <p><label>Cost: </label> <input type="number" name="cost" id="cost" placeholder="0.00"/></p>
         <p><label>Stock: </label><input type="number" placeholder="0" id="inventory" name="inventory" /></p>
         <p><label>Description: </label><textarea rows="6" style="resize:none" placeholder="Enter the book's description" id="description" name="description" ></textarea></p>
-        <button type="submit">Add</button>
+        <button type="submit">Publish</button>
     </form>
 </fieldset>
 
