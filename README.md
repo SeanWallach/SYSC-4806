@@ -4,7 +4,7 @@ Milestone 1 Task:
 
 Andrew Dybka
 
-    Responsible for the Implementaion of
+    Responsible for Owner class basic funcationality creation.
 
 Andrew Foster
 
@@ -12,9 +12,9 @@ Andrew Foster
     
 Everett Soldaat
 
-    Implementation of 
+    Responsible for Object Creation. 
 
 Sean Wallach
 
-    Implementation of 
+    Implementation of Travis CI build and Heroku application.
 
