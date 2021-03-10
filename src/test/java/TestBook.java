@@ -1,11 +1,8 @@
-package Tests;
-
 import Entities.Book;
-
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BookTest {
+public class TestBook {
 
     Book book;
 
