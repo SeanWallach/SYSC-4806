@@ -24,6 +24,7 @@ public class Initialize {
         //Will be used just for testing of JPA instantiations of objects.
         return (args) -> {
             Owner testOwner = new Owner("testUserName");
+            testOwner.setPassword("12345");
             oRepo.save(testOwner);
             Book testBook = new Book(5555,"testBook");
             bookRepo.save(testBook);
