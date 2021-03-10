@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Getting Started: Handling Form Submission</title>
@@ -8,32 +8,22 @@
 
 
 
-<p th:text="'-----Book:'+ ${book.name} +'-----'"> </p>
-
-<a th:href="${book.picture}"><img th:src="${book.picture}" width="123" height="168" title="Book" alt="Title"></a><br>
-
+<p th:text="'-----Book:'+ ${createdBook.getName()} +'-----'"> </p>
 <tr>
     <td> Description: </td><br>
-    <td th:text="${book.description}" /><br>
+    <td th:text="${createdBook.getDescription()}" /><br>
     <td> Author: </td>
-    <td th:text="${book.author}" /><br>
+    <td th:text="${createdBook.getAuthor()}" /><br>
     <td> Publisher: </td>
-    <td th:text="${book.publisher}" /><br>
+    <td th:text="${createdBook.getPublisher()}" /><br>
     <td> Cost: </td>
-    <td th:text="${book.cost}" /><br>
+    <td th:text="${createdBook.getPrice()}" /><br>
     <td> Stock: </td>
-    <td th:text="${book.inventory}" /><br>
+    <td th:text="${createdBook.getInventory()}" /><br>
     <td> ISBN: </td>
-    <td th:text="${book.ISBN}" /><br>
+    <td th:text="${createdBook.getISBN()}" /><br>
     <br><br>
 </tr>
-
-<form method="get" th:action="'/addToCart'">
-
-    <input type="submit" value="Done" />
-</form>
-
-
 </body>
 </html>
 

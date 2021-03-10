@@ -17,7 +17,17 @@ public class Book {
     private String author;
     private String publisher;
     private int inventory;
+    private double price;
     //Picture attribute to be implemented
+
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
     public long getISBN() {
         return ISBN;
@@ -73,10 +83,15 @@ public class Book {
         this.ISBN = ISBN;
         this.name = name;
     }
-    public Book(String name, String description, String author, String publisher){
+    public Book(String name, String author, String publisher,
+                long isbn, double price,
+                int inventory, String description){
         this.name = name;
         this.description = description;
         this.author = author;
         this.publisher = publisher;
+        this.ISBN = isbn;
+        this.price = price;
+        this.inventory = inventory;
     }
 }

@@ -37,9 +37,9 @@ public class OwnerController {
         Owner owner = new Owner();
         owner.setUsername(username);
         owner.getPassword();
-
         owners.save(owner);
-        return "login";
+
+        return "loginPage";
     }
 
 
@@ -47,23 +47,15 @@ public class OwnerController {
     //-------------------Methods to create and display books that owners make-------------------//
     @GetMapping("/createBook")
     public String createAddressBook(Model model){
-        model.addAttribute("Book", new Book());
-
+        model.addAttribute("newBook", new Book());
         return "bookCreation";
     }
 
     @PostMapping("/createBook")
-    public String publishBook(@RequestParam(value="name") String name,
-                              @RequestParam(value="author") String author,
-                              @RequestParam(value="description") String description,
-                              @RequestParam(value="publisher") String publisher){
-        Book book = new Book(name, description, author, publisher);
-
+    public String publishBook(@ModelAttribute Book book, Model model){
         books.save(book);
+        model.addAttribute("createdBook", book);
         return "bookDisplay";
     }
-
-
-
 
 }
