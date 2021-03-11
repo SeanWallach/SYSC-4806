@@ -20,7 +20,7 @@ One functionality for first Milestone: owners create and edit books, add them to
 | ------ |:----------------:|-----:|-----:|
 | Andrew |  |  | |
 | Andrew F | Created the Login Page with basic username recognition, created an Owner creation and Book creation and Book display page. | Will assist anyone that requires help to complete their deliverables for milestone 1. | I had some troubles with Thymeleaf and the controllers formatting. Andrew D. helped me and finished my issues. |
-| Sean   |  |  | |
+| Sean   |   Set up Herkoku and Travis CI | add JS to book creation |
 | Everett|  |  | |
 
 ### Group decisions:
