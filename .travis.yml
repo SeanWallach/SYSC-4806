@@ -4,5 +4,5 @@ deploy:
     - openjdk8
   deploy:
     provider: heroku
-    api_key: $HEROKU_API_KEY
+    api_key: e42448bf-1020-40d5-b6d5-a428987b3f0e
     app: SYSC-4806
