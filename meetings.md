@@ -5,7 +5,7 @@ Andrew Dybka, Andrew Foster, Everett, and Sean's Project
 |        | What have I done | What will I do  | What is holding me back |
 | ------ |:----------------:|-----:|-----:|
 | Andrew D|  |  | |
-| Andrew F| Drew UML diagram |  | |
+| Andrew F| Drew UML diagram | Setup a Login Page for the store with basic username recognition on login, create an Owner creation and Book creation page. | Nothing at the moment |
 | Sean   | Set up github repo |  | |
 | Everett|  |  | |
 
@@ -19,7 +19,7 @@ One functionality for first Milestone: owners create and edit books, add them to
 |        | What have I done | What will I do  | What is holding me back |
 | ------ |:----------------:|-----:|-----:|
 | Andrew |  |  | |
-| Andrew |  |  | |
+| Andrew F | Created the Login Page with basic username recognition, created an Owner creation and Book creation and Book display page. | Will assist anyone that requires help to complete their deliverables for milestone 1. | I had some troubles with Thymeleaf and the controllers formatting. Andrew D. helped me and finished my issues. |
 | Sean   |  |  | |
 | Everett|  |  | |
 
