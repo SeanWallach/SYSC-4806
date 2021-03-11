@@ -1,4 +1,4 @@
-Milestone 1 Task:
+#Milestone 1 Task:
     
    Create basic functionalities of the Amazin bookstore, to allow user to get a feel for the system.
 
@@ -18,3 +18,4 @@ Sean Wallach
 
     Implementation of Travis CI build and Heroku application.
 
+#Milestone 2 Tasks:
