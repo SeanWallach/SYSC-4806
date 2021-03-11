@@ -7,7 +7,7 @@ Andrew Dybka, Andrew Foster, Everett, and Sean's Project
 | Andrew D|  |  | |
 | Andrew F| Drew UML diagram |  | |
 | Sean   | Set up github repo |  | |
-| Everett|  |  | |
+| Everett|  | Start creation of Test Cases | |
 
 ### Group decisions:
 
@@ -21,7 +21,7 @@ One functionality for first Milestone: owners create and edit books, add them to
 | Andrew |  |  | |
 | Andrew |  |  | |
 | Sean   |  |  | |
-| Everett|  |  | |
+| Everett| Made Some test cases | Create User & Cart Entities, + related Repos and Tests | |
 
 ### Group decisions:
 
