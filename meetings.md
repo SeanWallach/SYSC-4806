@@ -6,7 +6,7 @@ Andrew Dybka, Andrew Foster, Everett, and Sean's Project
 | ------ |:----------------:|-----:|-----:|
 | Andrew D|  |  | |
 | Andrew F| Drew UML diagram | Setup a Login Page for the store with basic username recognition on login, create an Owner creation and Book creation page. | Nothing at the moment |
-| Sean   | Set up github repo |  | |
+| Sean   | Set up github repo, Kanban board | Set up Heroku and travis CI | N/A |
 | Everett|  |  | |
 
 ### Group decisions:
