@@ -8,11 +8,11 @@ Andrew Dybka
 
 Andrew Foster
 
-    Implementation of Travis CI build and Heroku application.
+    Responsible for Login page and functinality, Owner class creation, and  Book class creation using controllers.
     
 Everett Soldaat
 
-    Responsible for Object Creation. 
+    Responsible for User class Creation. 
 
 Sean Wallach
 
