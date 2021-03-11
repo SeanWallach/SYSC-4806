@@ -12,7 +12,7 @@ Andrew Foster
     
 Everett Soldaat
 
-    Responsible for Object Creation. 
+    Responsible for User and Cart Object Creation, creation of Test Cases 
 
 Sean Wallach
 
