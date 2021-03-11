@@ -8,7 +8,7 @@ public class TestOwner {
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
-        this.owner = new Owner("testUser");
+        this.owner = new Owner("testOwner");
     }
 
     @org.junit.jupiter.api.AfterEach

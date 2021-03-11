@@ -1,2 +1,3 @@
 Entities\Repositories\CartRepo.class
+Entities\User.class
 Entities\Cart.class
