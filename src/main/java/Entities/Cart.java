@@ -20,6 +20,11 @@ public class Cart {
 
     public Cart(){ books = new ArrayList<Book>(); }
 
+    public Cart(long id){
+        this.id = id;
+        books = new ArrayList<Book>();
+    }
+
     public long getId() { return id;}
 
     public void setId(long id) {this.id = id;}
@@ -27,5 +32,13 @@ public class Cart {
     public void removeBook(Book bookToRemove) {books.remove(bookToRemove);}
 
     public void addBook(Book bookToAdd) {books.add(bookToAdd);}
+
+    public boolean checkForBook(Book book) {
+        return books.contains(book);
+    }
+
+    public int getCartSize() {
+        return books.size();
+    }
 
 }

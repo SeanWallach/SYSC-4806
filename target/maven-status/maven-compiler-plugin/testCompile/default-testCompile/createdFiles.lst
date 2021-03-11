@@ -1,3 +1,4 @@
-TestIntegration.class
 TestOwner.class
+TestIntegration.class
 TestBook.class
+TestCart.class
