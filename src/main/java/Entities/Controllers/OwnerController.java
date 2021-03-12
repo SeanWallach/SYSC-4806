@@ -46,7 +46,7 @@ public class OwnerController {
 
     //-------------------Methods to create and display books that owners make-------------------//
     @GetMapping("/createBook")
-    public String createAddressBook(Model model){
+    public String createBook(Model model){
         model.addAttribute("newBook", new Book());
         return "bookCreation";
     }
