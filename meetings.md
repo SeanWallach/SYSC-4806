@@ -7,7 +7,7 @@ Andrew Dybka, Andrew Foster, Everett, and Sean's Project
 | Andrew D|  |  | |
 | Andrew F| Drew UML diagram | Setup a Login Page for the store with basic username recognition on login, create an Owner creation and Book creation page. | Nothing at the moment |
 | Sean   | Set up github repo, Kanban board | Set up Heroku and travis CI | N/A |
-| Everett|  |  | |
+| Everett|  | Create Test classes and Created Remaining Objects with JPA | Nothing |
 
 ### Group decisions:
 
@@ -21,7 +21,7 @@ One functionality for first Milestone: owners create and edit books, add them to
 | Andrew |  |  | |
 | Andrew F | Created the Login Page with basic username recognition, created an Owner creation and Book creation and Book display page. | Will assist anyone that requires help to complete their deliverables for milestone 1. | I had some troubles with Thymeleaf and the controllers formatting. Andrew D. helped me and finished my issues. |
 | Sean   |   Set up Herkoku and Travis CI | add JS to book creation |
-| Everett|  |  | |
+| Everett| Creating Initial Test Classes | Add remaining objects with JPA | Nothing |
 
 ### Group decisions:
 
