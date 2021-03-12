@@ -2,7 +2,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <script src="../helpers/bookCreation.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <h1>Create New Book</h1>
 </head>
@@ -21,7 +20,7 @@
         <p><label>Price: </label> <input type="number" name="cost" id="cost" placeholder="0.00" th:field="*{price}"/></p>
         <p><label>Stock: </label><input type="number" placeholder="0" id="inventory" th:field="*{inventory}" /></p>
         <p><label>Description: </label><textarea rows="6" style="resize:none" placeholder="Enter the book's description" id="description" name="description" th:field="*{description}"></textarea></p>
-        <input type="submit" id = "submit" value="Publish"></input>
+        <input type="submit" value="Publish"></input>
     </form>
 </fieldset>
 
