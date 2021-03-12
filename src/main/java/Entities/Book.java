@@ -79,7 +79,7 @@ public class Book {
 
     public Book(){}
 
-    public Book(long ISBN, String name){
+    public Book(String name, long ISBN){
         this.ISBN = ISBN;
         this.name = name;
     }
