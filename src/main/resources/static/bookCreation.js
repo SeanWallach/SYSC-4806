@@ -1,4 +1,4 @@
-var createBook = function() {
+var createBook = {
     setup: function(){
         $(document).on('click', '#submit', createBook.PostBook);
     }
@@ -6,9 +6,16 @@ var createBook = function() {
         e.preventDefault();
         var input = $("input");
         var params = {
-            name:input[0].value
+            name:$("#name").val(),
+            author:$("#author").val(),
+            publisher:$("#publisher").val(),
+            ISBN:$("#ISBN").val(),
+            price:$("#cost").val(),
+            inventory:$("#inventory").val(),
+            description:$("#description").val()
         };
-        var uri = "/createBook";
+        console.log(JSON.stringify(params));
+        var uri = "/books";
 
         $.ajax({
             method: "POST",
@@ -21,26 +28,25 @@ var createBook = function() {
     ,GetBooks: function(){
         $.ajax({
             method: "GET",
-            url: "/createBook",
+            url: "/books",
             dataType: 'json',
             success: createBook.showResult
         })
     }
     ,showResult: function(jsonData){
-        $('#form').hide()
+        $('#form').trigger("reset")
         var books = jsonData._embedded.books;
 
         var list = document.createElement("ul");
         for( book in books) {
             var text = "Name: " + books[book].name;
-            var listItem = document.createElement("l");
+            var listItem = document.createElement("li");
             var textItem = document.createTextNode(text);
             listItem.appendChild(textItem);
             list.appendChild(listItem);
         }
-        var elem = document.getElementById("")
+        var elem = document.getElementById("sixNine")
         elem.appendChild(list);
-
     }
 }
 

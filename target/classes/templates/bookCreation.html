@@ -2,29 +2,29 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <script src="../helpers/bookCreation.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <h1>Create New Book</h1>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="bookCreation.js"></script>
 </head>
 <body>
 
+<div id="sixNine">
+    <fieldset>
+        <form id="form" th:action="@{/createBook}" th:object="${newBook}" method="post">
+            <p> <em>Please fill in the information of the book you would like to publish: </em></p>
 
-<fieldset>
-
-    <form th:action="@{/createBook}" th:object="${newBook}" method="post">
-        <p> <em>Please fill in the information of the book you would like to publish: </em></p>
-
-        <p><label>Title: </label><input type="text" placeholder="" id="name" th:field="*{name}" /></p>
-        <p><label>Author: </label><input type="text" placeholder=""id="author" th:field="*{author}" /></p>
-        <p><label>Publisher: </label><input type="text" placeholder="" id="publisher" th:field="*{publisher}" /></p>
-        <p><label>ISBN: </label><input type="number" placeholder="" id="ISBN" th:field="*{ISBN}" /></p>
-        <p><label>Price: </label> <input type="number" name="cost" id="cost" placeholder="0.00" th:field="*{price}"/></p>
-        <p><label>Stock: </label><input type="number" placeholder="0" id="inventory" th:field="*{inventory}" /></p>
-        <p><label>Description: </label><textarea rows="6" style="resize:none" placeholder="Enter the book's description" id="description" name="description" th:field="*{description}"></textarea></p>
-        <input type="submit" id = "submit" value="Publish"></input>
-    </form>
-</fieldset>
-
+            <p><label>Title: </label><input type="text" placeholder="" id="name" th:field="*{name}" /></p>
+            <p><label>Author: </label><input type="text" placeholder=""id="author" th:field="*{author}" /></p>
+            <p><label>Publisher: </label><input type="text" placeholder="" id="publisher" th:field="*{publisher}" /></p>
+            <p><label>ISBN: </label><input type="number" placeholder="" id="ISBN" th:field="*{ISBN}" /></p>
+            <p><label>Price: </label> <input type="number" name="cost" id="cost" placeholder="0.00" th:field="*{price}"/></p>
+            <p><label>Stock: </label><input type="number" placeholder="0" id="inventory" th:field="*{inventory}" /></p>
+            <p><label>Description: </label><textarea rows="6" style="resize:none" placeholder="Enter the book's description" id="description" name="description" th:field="*{description}"></textarea></p>
+            <input type="submit" id = "submit" value="Publish"></input>
+        </form>
+    </fieldset>
+</div>
 
 
 

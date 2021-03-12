@@ -26,7 +26,7 @@ public class Initialize {
             Owner testOwner = new Owner("testUserName");
             testOwner.setPassword("12345");
             oRepo.save(testOwner);
-            Book testBook = new Book(5555,"testBook");
+            Book testBook = new Book("testBook", 5555);
             bookRepo.save(testBook);
 
 
