@@ -18,4 +18,8 @@ Sean Wallach
 
     Implementation of Travis CI build and Heroku application.
 
+
+Travis CI link:
+https://travis-ci.com/github/SeanWallach/SYSC-4806
+
 #Milestone 2 Tasks:
