@@ -1,4 +1,4 @@
-#Milestone 1 Task:
+## Milestone 1 Task:
     
    Create basic functionalities of the Amazin bookstore, to allow user to get a feel for the system.
 
@@ -25,4 +25,4 @@ https://travis-ci.com/github/SeanWallach/SYSC-4806
 Heroku:
 https://sysc-4806-aas.herokuapp.com/
 
-#Milestone 2 Tasks:
+## Milestone 2 Tasks:
