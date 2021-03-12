@@ -23,6 +23,6 @@ Everett Soldaat
 
 Sean Wallach
 
-    Implementation of Travis CI build and Heroku application.
+    Implementation of Travis CI build and Heroku application. Started JS implementation for Book Creation
 
 ## Milestone 2 Tasks:
