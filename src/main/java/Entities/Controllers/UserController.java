@@ -33,7 +33,7 @@ public class UserController {
                               @RequestParam(value="password") String password) {
         User user = new User();
         user.setUsername(username);
-        user.getPassword();
+        user.setPassword(password);
         users.save(user);
 
         return "loginPage";
