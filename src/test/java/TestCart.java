@@ -10,7 +10,7 @@ public class TestCart {
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
         this.cart = new Cart(1);
-        this.book = new Book("myBook", 1234);
+        this.book = new Book("myBook", "publisher", "author", 1234, 4.20,40,"description");
     }
 
     @org.junit.jupiter.api.AfterEach

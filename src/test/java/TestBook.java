@@ -8,7 +8,7 @@ public class TestBook {
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
-        this.book = new Book("Harry Potter", "myAuthor", "myPublisher" ,12345, 9.99, 10, "myDescription" );
+        this.book = new Book("Harry Potter", "myAuthor", "myPublisher" ,11111, 19.99, 10, "myDescription" );
 
     }
 
