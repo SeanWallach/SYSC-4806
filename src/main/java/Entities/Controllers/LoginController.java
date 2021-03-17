@@ -3,6 +3,8 @@ package Entities.Controllers;
 import Entities.Owner;
 import Entities.Repositories.BookRepo;
 import Entities.Repositories.OwnerRepo;
+import Entities.Repositories.UserRepo;
+import Entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,9 @@ public class LoginController {
     @Autowired
     private OwnerRepo owners;
 
+    @Autowired
+    UserRepo users;
+
 
     //----------------------------------------Login page------------------------------------//
     @RequestMapping("/")
@@ -34,9 +39,20 @@ public class LoginController {
                                 @RequestParam(value = "password") String password,
                                 Model model) {
 
-        Owner attempt = owners.findByUsername(username);
-        if(attempt != null) return "ownerHomepage";
-        else return "loginPage";
+        Owner ownerAttempt = owners.findByUsername(username);
+        User userAttempt = users.findByUsername(username);
+
+        if(ownerAttempt != null) {
+            if(ownerAttempt.getUsername().equals(username) && ownerAttempt.getPassword().equals(password)) {
+                return "ownerHomepage";
+            }
+        }
+        else if( userAttempt != null){
+            if(userAttempt.getUsername().equals(username) && userAttempt.getPassword().equals(password)) {
+                return "userHomepage";
+            }
+        }
+        return "loginPage";
     }
 
 }
