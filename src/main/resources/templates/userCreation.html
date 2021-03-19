@@ -1,33 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <h1>Login </h1>
+    <title>Title</title>
+    <h1>Create User Account </h1>
 </head>
 <body>
 
-
-
 <fieldset>
-    <form action="#" th:action="@{/validateLogin}" method="post">
+    <form action="#" th:action="@{/createUser}" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" th:name="username"><br><br>
 
         <label for="password">Password:</label>
         <input type="text" id="password" th:name="password"><br><br>
 
-        <input type="submit" value="Login"/>
+        <input type="submit" value="Create Account"/>
     </form>
-
-    <form>
-        <button type="submit" formaction="/createUser">   Create new User Account   </button>
-    </form>
-
-    <form>
-        <button type="submit" formaction="/createOwner">   Create new Owner Account   </button>
-    </form>
-
 </fieldset>
 </body>
 </html>

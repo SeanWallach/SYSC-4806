@@ -36,7 +36,7 @@ public class OwnerController {
                               @RequestParam(value="password") String password) {
         Owner owner = new Owner();
         owner.setUsername(username);
-        owner.getPassword();
+        owner.setPassword(password);
         owners.save(owner);
 
         return "loginPage";
