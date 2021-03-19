@@ -5,6 +5,27 @@ https://travis-ci.com/github/SeanWallach/SYSC-4806
 Heroku:
 https://sysc-4806-aas.herokuapp.com/
 
+## Milestone 2 Tasks:
+   
+   Create basic functionalities of the Amazin bookstore, to allow user to get a feel for the system.
+
+Andrew Dybka
+
+    Responsible for 
+
+Andrew Foster
+
+    Responsible for 
+    
+Everett Soldaat
+
+    Responsible for  
+
+Sean Wallach
+
+    Responsible for
+    
+    
 ## Milestone 1 Task:
     
    Create basic functionalities of the Amazin bookstore, to allow user to get a feel for the system.
@@ -25,4 +46,4 @@ Sean Wallach
 
     Implementation of Travis CI build and Heroku application. Started JS implementation for Book Creation
 
-## Milestone 2 Tasks:
+
