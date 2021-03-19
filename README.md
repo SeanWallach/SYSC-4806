@@ -7,7 +7,7 @@ https://sysc-4806-aas.herokuapp.com/
 
 ## Milestone 2 Tasks:
    
-   Create basic functionalities of the Amazin bookstore, to allow user to get a feel for the system.
+   Enhance the functionality of the store, introduce password validation, improve documentation, and implement PostgresSQL
 
 Andrew Dybka
 
