@@ -1,5 +1,6 @@
 package Entities.Controllers;
 
+import Entities.Book;
 import Entities.Owner;
 import Entities.Repositories.BookRepo;
 import Entities.Repositories.OwnerRepo;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.ArrayList;
 
 @Controller
 public class LoginController {
@@ -49,6 +52,11 @@ public class LoginController {
         }
         else if( userAttempt != null){
             if(userAttempt.getUsername().equals(username) && userAttempt.getPassword().equals(password)) {
+                ArrayList<Book> library = new ArrayList<Book>();
+                for (Book b : books.findAll()) {
+                    library.add(b);
+                    model.addAttribute("library", library);
+                }
                 return "userHomepage";
             }
         }
