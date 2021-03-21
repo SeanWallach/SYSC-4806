@@ -79,10 +79,6 @@ public class Book {
 
     public Book(){}
 
-    public Book(String name, long ISBN){
-        this.ISBN = ISBN;
-        this.name = name;
-    }
     public Book(String name, String author, String publisher,
                 long isbn, double price,
                 int inventory, String description){
