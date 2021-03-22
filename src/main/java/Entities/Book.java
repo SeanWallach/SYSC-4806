@@ -3,6 +3,7 @@ package Entities;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.net.URL;
 
 
 @Component
@@ -12,7 +13,7 @@ public class Book {
     private long ISBN;
 
     private String name;
-    private String picture;
+    private URL picture;
     private String description;
     private String author;
     private String publisher;
@@ -75,6 +76,14 @@ public class Book {
 
     public void setInventory(int inventory) {
         this.inventory = inventory;
+    }
+
+    public void setPicture(URL image) {
+        this.picture = image;
+    }
+
+    public URL getPicture() {
+        return picture;
     }
 
     public Book(){}
