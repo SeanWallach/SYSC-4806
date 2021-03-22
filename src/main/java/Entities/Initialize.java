@@ -19,7 +19,7 @@ public class Initialize {
     }
 
     @Bean
-    public CommandLineRunner initialization(BookRepo bookRepo, OwnerRepo oRepo, UserRepo uRepo){
+    public CommandLineRunner initialization(BookRepo bookRepo, OwnerRepo oRepo, ClientRepo uRepo){
         //This can be used to initialize DB with stuff on start up.
         //Will be used just for testing of JPA instantiations of objects.
         return (args) -> {
@@ -33,7 +33,7 @@ public class Initialize {
             bookRepo.save(testBook2);
             bookRepo.save(testBook);
 
-            User testUser = new User("testUserName");
+            Client testUser = new Client("testUserName");
             testUser.setPassword("myPassword");
             uRepo.save(testUser);
 
@@ -44,7 +44,7 @@ public class Initialize {
             Book findBook = bookRepo.findById(5555);
             log.info("Book Added: " + findBook.getISBN());
 
-            User findUser = uRepo.findByUsername("testUserName");
+            Client findUser = uRepo.findByUsername("testUserName");
             log.info("User Added: " + findUser.getUsername());
         };
     }

@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Component
 @Entity
-public class User {
+public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,9 +18,9 @@ public class User {
     @OneToOne
     private Cart cart;
 
-    public User(){}
+    public Client(){}
 
-    public User(String username) {this.username = username;}
+    public Client(String username) {this.username = username;}
 
 
     public long getId() {
