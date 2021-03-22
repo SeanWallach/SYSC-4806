@@ -11,7 +11,7 @@
 
 <div id="sixNine">
     <fieldset>
-        <form id="form" th:action="@{/createBook}" th:object="${newBook}" method="post">
+        <form id="form" th:action="@{/createBook}" th:object="${newBook}" method="post" enctype="multipart/form-data">
             <p> <em>Please fill in the information of the book you would like to publish: </em></p>
 
             <p><label>Title: </label><input type="text" placeholder="" id="name" th:field="*{name}" /></p>
@@ -21,6 +21,7 @@
             <p><label>Price: </label> <input type="number" name="cost" id="cost" placeholder="0.00" th:field="*{price}"/></p>
             <p><label>Stock: </label><input type="number" placeholder="0" id="inventory" th:field="*{inventory}" /></p>
             <p><label>Description: </label><textarea rows="6" style="resize:none" placeholder="Enter the book's description" id="description" name="description" th:field="*{description}"></textarea></p>
+            <p><label>Picture: </label><input type="file" name="image"/></p>
             <input type="submit" id = "submit" value="Publish"></input>
         </form>
     </fieldset>

@@ -24,6 +24,9 @@
     <td th:text="${createdBook.getISBN()}" /><br>
     <br><br>
 </tr>
+
+<img th:src="${createdBook.getPicture()}" th:alt="${createdBook.getPicture()}"/>
+
 </body>
 </html>
 

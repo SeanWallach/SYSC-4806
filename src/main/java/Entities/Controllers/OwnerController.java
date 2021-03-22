@@ -4,12 +4,26 @@ import Entities.Book;
 import Entities.Owner;
 import Entities.Repositories.BookRepo;
 import Entities.Repositories.OwnerRepo;
+
+
+import com.amazonaws.SdkClientException;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.s3.model.CannedAccessControlList;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 
+import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +66,47 @@ public class OwnerController {
     }
 
     @PostMapping("/createBook")
-    public String publishBook(@ModelAttribute Book book, Model model){
+    public String publishBook(@ModelAttribute Book book, @RequestParam(value="image") MultipartFile Multifile, Model model) throws FileNotFoundException {
+
+        String bucketName = "sysc4806-images";
+        String key = "This is the file name";
+
+        BasicAWSCredentials awsCreds = new BasicAWSCredentials("AKIAQ2XALK5GHOQOALW2", "B/BB7tqVDUUmbHULvDigqySIJRtPyszhntl8hG/O");
+
+        File file_s3 = new File("src/main/resources/uploads/temp.png");
+        try (OutputStream os = new FileOutputStream(file_s3)) {
+            os.write(Multifile.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
+                    .withRegion("us-east-2")
+                    .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
+                    .build();
+
+
+            PutObjectRequest request = new PutObjectRequest(bucketName, key, file_s3);
+            ObjectMetadata metadata = new ObjectMetadata();
+            metadata.setContentType("image/png");
+            metadata.addUserMetadata("title", "TestTitle");
+            request.setMetadata(metadata);
+
+            request.setCannedAcl(CannedAccessControlList.PublicRead);
+
+            s3Client.putObject(request);
+
+            URL image_url = s3Client.getUrl(bucketName, key);
+
+            book.setPicture(image_url);
+
+        } catch (SdkClientException e) {
+            e.printStackTrace();
+        }
+
+
+
         books.save(book);
         model.addAttribute("createdBook", book);
         return "bookDisplay";
