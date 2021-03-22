@@ -3,21 +3,17 @@ package Entities.Controllers;
 
 
 import Entities.Owner;
-import Entities.Repositories.UserRepo;
-import Entities.User;
+import Entities.Repositories.ClientRepo;
+import Entities.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class UserController {
     @Autowired
-    private UserRepo users;
+    private ClientRepo users;
 
     //-----------------------------------User creation------------------------------------------//
     //adds user to model and sends to userCreation html page.
@@ -31,7 +27,7 @@ public class UserController {
     @PostMapping("/createUser")
     public String ownerSubmit(@RequestParam(value="username") String username,
                               @RequestParam(value="password") String password) {
-        User user = new User();
+        Client user = new Client();
         user.setUsername(username);
         user.setPassword(password);
         users.save(user);

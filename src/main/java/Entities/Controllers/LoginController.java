@@ -4,13 +4,11 @@ import Entities.Book;
 import Entities.Owner;
 import Entities.Repositories.BookRepo;
 import Entities.Repositories.OwnerRepo;
-import Entities.Repositories.UserRepo;
-import Entities.User;
+import Entities.Repositories.ClientRepo;
+import Entities.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -25,7 +23,7 @@ public class LoginController {
     private OwnerRepo owners;
 
     @Autowired
-    UserRepo users;
+    ClientRepo users;
 
 
     //----------------------------------------Login page------------------------------------//
@@ -43,7 +41,7 @@ public class LoginController {
                                 Model model) {
 
         Owner ownerAttempt = owners.findByUsername(username);
-        User userAttempt = users.findByUsername(username);
+        Client userAttempt = users.findByUsername(username);
 
         if(ownerAttempt != null) {
             if(ownerAttempt.getUsername().equals(username) && ownerAttempt.getPassword().equals(password)) {

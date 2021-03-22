@@ -1,16 +1,16 @@
 import Entities.Cart;
-import Entities.User;
+import Entities.Client;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestUser {
 
-    User user;
+    Client user;
     Cart cart;
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
-        this.user = new User("testUser");
+        this.user = new Client("testUser");
         this.cart = new Cart(123);
     }
 
