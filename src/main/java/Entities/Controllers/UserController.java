@@ -5,6 +5,7 @@ package Entities.Controllers;
 import Entities.Owner;
 import Entities.Repositories.ClientRepo;
 import Entities.Client;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +20,6 @@ public class UserController {
     //adds user to model and sends to userCreation html page.
     @GetMapping("/createUser")
     public String createOwner(Model model) {
-        model.addAttribute("owner", new Owner());
         return "userCreation";
     }
 

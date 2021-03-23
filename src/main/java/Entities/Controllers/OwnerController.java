@@ -40,7 +40,6 @@ public class OwnerController {
     //adds owner to model and sends to ownerCreation html page.
     @GetMapping("/createOwner")
     public String createOwner(Model model) {
-        model.addAttribute("owner", new Owner());
         return "ownerCreation";
     }
 
