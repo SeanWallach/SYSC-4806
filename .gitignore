@@ -28,6 +28,9 @@
 *.so.*
 *.dylib
 
+#Local properties
+application.properties
+
 # Executables
 *.exe
 *.out
