@@ -31,6 +31,9 @@
 #Local properties
 application.properties
 
+#Local Image uploads
+/uploads
+
 # Executables
 *.exe
 *.out
