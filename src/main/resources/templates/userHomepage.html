@@ -7,10 +7,12 @@
 <body>
 <p>User Login Successful, Welcome to Book Store</p>
 <fieldset>
+    <p>------Library------</p>
     <div>
         <table>
             <tr>
                 <th>Book Name</th>
+                <th>Picture</th>
                 <th>Description</th>
                 <th>ISBN</th>
                 <th>Author</th>
@@ -21,14 +23,56 @@
             </tr>
             <tr th:each="item : ${library}">
                 <td th:text="${item.name}"></td>
+                <td th:text="${item.picture}"></td>
                 <td th:text="${item.description}"></td>
                 <td th:text="${item.ISBN}"></td>
                 <td th:text="${item.author}"></td>
                 <td th:text="${item.publisher}"></td>
                 <td th:text="${item.inventory}"></td>
                 <td th:text="${item.price}"></td>
-                <td> <button type="submit" formaction="/addToCart">Add</button></td>
+                <td>
+                    <form action="#" th:action="@{/addToCart}" method="post">
+                        <input type="hidden" id="${item.ISBN}" th:name="bookID">
+                        <input type="hidden" id="userID" th:name="userID">
+
+                        <input type="submit" value="Add"/>
+                    </form>
+                </td>
             </tr>
+        </table>
+    </div>
+</fieldset>
+
+<fieldset>
+    <p>------Cart------</p>
+    <div>
+        <table>
+            <tr>
+                <th>Book Name</th>
+                <th>Picture</th>
+                <th>Description</th>
+                <th>ISBN</th>
+                <th>Author</th>
+                <th>Publisher</th>
+                <th>Inventory</th>
+                <th>Price $</th>
+                <th>Add to cart</th>
+            </tr>
+            <tr th:each="item : ${Cart}">
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.picture}"></td>
+                <td th:text="${item.description}"></td>
+                <td th:text="${item.ISBN}"></td>
+                <td th:text="${item.author}"></td>
+                <td th:text="${item.publisher}"></td>
+                <td th:text="${item.inventory}"></td>
+                <td th:text="${item.price}"></td>
+
+            </tr>
+            <form>
+                <button type="submit" formaction="/purchase">   Buy   </button>
+            </form>
+
         </table>
     </div>
 </fieldset>

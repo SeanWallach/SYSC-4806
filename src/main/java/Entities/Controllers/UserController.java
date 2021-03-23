@@ -2,7 +2,10 @@ package Entities.Controllers;
 
 
 
+import Entities.Book;
+import Entities.Cart;
 import Entities.Owner;
+import Entities.Repositories.BookRepo;
 import Entities.Repositories.ClientRepo;
 import Entities.Client;
 
@@ -11,10 +14,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @Controller
 public class UserController {
     @Autowired
     private ClientRepo users;
+
+    @Autowired
+    private BookRepo books;
 
     //-----------------------------------User creation------------------------------------------//
     //adds user to model and sends to userCreation html page.
@@ -34,6 +42,8 @@ public class UserController {
 
         return "loginPage";
     }
+
+
 
 
 }
