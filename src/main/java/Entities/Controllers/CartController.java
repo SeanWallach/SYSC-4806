@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Controller
 public class CartController {
@@ -25,27 +26,31 @@ public class CartController {
 
     //----------------------------------------Add Book to Cart------------------------------------//
     @RequestMapping("/addToCart")
-    public String addToCart(@RequestParam("bookID") Integer bookID,
-                            @ModelAttribute("userID") Integer userID,
+    public String addToCart(@RequestParam("bookID") Long bookID,
+                            @ModelAttribute("userID") Long userID,
                             Model model){
 
-        //Client client = users.findById(userID);
-        //Book book = books.findById(bookID);
+        System.out.println(bookID);
+        System.out.println(userID);
 
-        /*client.getCart().addBook(book);
+        Client client = users.findById(userID).get();
+        Book book = books.findById(bookID).get();
 
-        users.save(client);
+        //if the cart has not been used yet, we create a cart for the client
+        if(client.getCart() == null){
+            System.out.println("no cart");
+            client.setCart(new Cart());
+        }
+        client.addToCart(book);
+        //users.save(client);
 
-        model.addAttribute("Cart", client.getCart());
-
-
-        model.addAttribute("library", library);*/
-
-
+        for(Book b: client.getCart().getBooks()){
+            System.out.println(b.getName());
+        }
+        model.addAttribute("Cart", client.getCart().getBooks());
+        model.addAttribute("library", books.findAll());
 
         return "userHomepage";
-
-
     }
 
 }

@@ -31,9 +31,9 @@
                 <td th:text="${item.inventory}"></td>
                 <td th:text="${item.price}"></td>
                 <td>
-                    <form action="#" th:action="@{/addToCart}" method="post">
-                        <input type="hidden" id="${item.ISBN}" th:name="bookID">
-                        <input type="hidden" id="userID" th:name="userID">
+                    <form action="#" th:action="@{/addToCart}" method="get">
+                        <input type="hidden" th:value="${item.ISBN}" th:name="bookID">
+                        <input type="hidden" th:value="${userID}" th:name="userID">
 
                         <input type="submit" value="Add"/>
                     </form>
@@ -54,26 +54,18 @@
                 <th>ISBN</th>
                 <th>Author</th>
                 <th>Publisher</th>
-                <th>Inventory</th>
+                <th>Quantity</th>
                 <th>Price $</th>
-                <th>Add to cart</th>
+                <th>Total</th>
             </tr>
-            <tr th:each="item : ${Cart}">
-                <td th:text="${item.name}"></td>
-                <td th:text="${item.picture}"></td>
-                <td th:text="${item.description}"></td>
-                <td th:text="${item.ISBN}"></td>
-                <td th:text="${item.author}"></td>
-                <td th:text="${item.publisher}"></td>
-                <td th:text="${item.inventory}"></td>
-                <td th:text="${item.price}"></td>
-
+            <tr th:each="book : ${Cart}">
+                <td th:text="${book.name}"></td>
             </tr>
-            <form>
-                <button type="submit" formaction="/purchase">   Buy   </button>
-            </form>
 
         </table>
+        <form>
+            <button type="submit" formaction="/purchase">   Buy   </button>
+        </form>
     </div>
 </fieldset>
 </body>

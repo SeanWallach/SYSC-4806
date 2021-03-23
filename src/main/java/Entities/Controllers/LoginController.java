@@ -24,7 +24,7 @@ public class LoginController {
     private OwnerRepo owners;
 
     @Autowired
-    ClientRepo users;
+    private ClientRepo users;
 
 
     //----------------------------------------Login page------------------------------------//
@@ -54,6 +54,9 @@ public class LoginController {
             if(userAttempt.getUsername().equals(username) && userAttempt.getPassword().equals(password)) {
                 model.addAttribute("userID",userAttempt.getId());
                 model.addAttribute("library", books.findAll());
+                //model.addAttribute("Cart", new ArrayList<Book>());
+
+
                 return "userHomepage";
             }
         }
