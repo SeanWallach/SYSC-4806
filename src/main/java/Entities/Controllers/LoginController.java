@@ -46,9 +46,12 @@ public class LoginController {
         if(ownerAttempt != null) {
 
             if(ownerAttempt.getUsername().equals(username) && ownerAttempt.getPassword().equals(password)) {
+                model.addAttribute("loggedInOwner", ownerAttempt);
+                model.addAttribute("library", books.findAll());
                 return "ownerHomepage";
             }
         }
+
         else if( userAttempt != null){
 
             if(userAttempt.getUsername().equals(username) && userAttempt.getPassword().equals(password)) {
@@ -63,5 +66,4 @@ public class LoginController {
         model.addAttribute("message", "Invalid login");
         return "loginPage";
     }
-
 }

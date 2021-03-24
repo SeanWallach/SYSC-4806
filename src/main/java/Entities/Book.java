@@ -19,8 +19,6 @@ public class Book {
     private String publisher;
     private int inventory;
     private double price;
-    //Picture attribute to be implemented
-
 
     public double getPrice() {
         return price;
