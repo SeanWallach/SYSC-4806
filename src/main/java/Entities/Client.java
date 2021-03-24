@@ -3,6 +3,7 @@ package Entities;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Component
 @Entity
@@ -20,7 +21,9 @@ public class Client {
 
     public Client(){}
 
-    public Client(String username) {this.username = username;}
+    public Client(String username) {
+        this.username = username;
+    }
 
 
     public long getId() {
@@ -41,6 +44,10 @@ public class Client {
 
     public String getPassword() {
         return password;
+    }
+
+    public void addToCart(Book book){
+        cart.addBook(book);
     }
 
     public void setPassword(String password) {

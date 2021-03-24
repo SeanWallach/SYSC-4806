@@ -37,6 +37,10 @@ public class Cart {
         return books.contains(book);
     }
 
+    public List<Book> getBooks(){
+        return books;
+    }
+
     public int getCartSize() {
         return books.size();
     }

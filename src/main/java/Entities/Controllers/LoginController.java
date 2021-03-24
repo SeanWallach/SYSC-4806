@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class LoginController {
@@ -23,7 +24,7 @@ public class LoginController {
     private OwnerRepo owners;
 
     @Autowired
-    ClientRepo users;
+    private ClientRepo users;
 
 
     //----------------------------------------Login page------------------------------------//
@@ -43,22 +44,26 @@ public class LoginController {
         Client userAttempt = users.findByUsername(username);
 
         if(ownerAttempt != null) {
+
             if(ownerAttempt.getUsername().equals(username) && ownerAttempt.getPassword().equals(password)) {
                 model.addAttribute("loggedInOwner", ownerAttempt);
                 model.addAttribute("library", books.findAll());
                 return "ownerHomepage";
             }
         }
-        else if(userAttempt != null){
+
+        else if( userAttempt != null){
+
             if(userAttempt.getUsername().equals(username) && userAttempt.getPassword().equals(password)) {
-                ArrayList<Book> library = new ArrayList<Book>();
-                for (Book b : books.findAll()) {
-                    library.add(b);
-                    model.addAttribute("library", library);
-                }
+                model.addAttribute("userID",userAttempt.getId());
+                model.addAttribute("library", books.findAll());
+                //model.addAttribute("Cart", new ArrayList<Book>());
+
+
                 return "userHomepage";
             }
         }
+        model.addAttribute("message", "Invalid login");
         return "loginPage";
     }
 }
