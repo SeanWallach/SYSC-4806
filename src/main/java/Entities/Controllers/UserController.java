@@ -22,7 +22,7 @@ public class UserController {
     //-----------------------------------User creation------------------------------------------//
     //adds user to model and sends to userCreation html page.
     @GetMapping("/createUser")
-    public String createUser(Model model) {
+    public String createOwner(Model model) {
         return "userCreation";
     }
 
