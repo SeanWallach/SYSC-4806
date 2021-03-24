@@ -4,6 +4,7 @@ import Entities.Book;
 import Entities.Cart;
 import Entities.Client;
 import Entities.Repositories.BookRepo;
+import Entities.Repositories.CartRepo;
 import Entities.Repositories.ClientRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,9 @@ import java.util.Optional;
 
 @Controller
 public class CartController {
+    @Autowired
+    private CartRepo carts;
+
     @Autowired
     private BookRepo books;
 
@@ -41,12 +45,16 @@ public class CartController {
             System.out.println("no cart");
             client.setCart(new Cart());
         }
-        client.addToCart(book);
-        //users.save(client);
-
-        for(Book b: client.getCart().getBooks()){
-            System.out.println(b.getName());
+        if(!client.getCart().getBooks().contains(book)){
+            client.addToCart(book);
         }
+        else{
+            System.out.println("Book is already in you're cart");
+        }
+
+        carts.save(client.getCart());
+        users.save(client);
+
         model.addAttribute("Cart", client.getCart().getBooks());
         model.addAttribute("library", books.findAll());
 

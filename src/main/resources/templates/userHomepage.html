@@ -50,16 +50,16 @@
             <tr>
                 <th>Book Name</th>
                 <th>Picture</th>
-                <th>Description</th>
-                <th>ISBN</th>
-                <th>Author</th>
-                <th>Publisher</th>
+                <th>Price</th>
                 <th>Quantity</th>
-                <th>Price $</th>
-                <th>Total</th>
             </tr>
             <tr th:each="book : ${Cart}">
                 <td th:text="${book.name}"></td>
+                <td th:text="${book.picture}"></td>
+                <td th:text="${book.price}"></td>
+                <td>
+                    <input type="number"  th:value="1"/>
+                </td>
             </tr>
 
         </table>
