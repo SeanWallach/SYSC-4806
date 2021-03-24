@@ -5,7 +5,7 @@ package Entities.Controllers;
 import Entities.Owner;
 import Entities.Repositories.ClientRepo;
 import Entities.Client;
-
+import Entities.Repositories.OwnerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,10 +16,13 @@ public class UserController {
     @Autowired
     private ClientRepo users;
 
+    @Autowired
+    private OwnerRepo owners;
+
     //-----------------------------------User creation------------------------------------------//
     //adds user to model and sends to userCreation html page.
     @GetMapping("/createUser")
-    public String createOwner(Model model) {
+    public String createUser(Model model) {
         return "userCreation";
     }
 
@@ -27,6 +30,7 @@ public class UserController {
     @PostMapping("/createUser")
     public String ownerSubmit(@RequestParam(value="username") String username,
                               @RequestParam(value="password") String password) {
+
         Client user = new Client();
         user.setUsername(username);
         user.setPassword(password);
