@@ -40,7 +40,6 @@ public class OwnerController {
     //adds owner to model and sends to ownerCreation html page.
     @GetMapping("/createOwner")
     public String createOwner(Model model) {
-        model.addAttribute("owner", new Owner());
         return "ownerCreation";
     }
 
@@ -57,12 +56,13 @@ public class OwnerController {
     }
 
 
-
     //-------------------Methods to create and display books that owners make-------------------//
     @GetMapping("/createBook")
     public String createBook(Model model){
         model.addAttribute("newBook", new Book());
         return "bookCreation";
+
+
     }
 
     @PostMapping("/createBook")
@@ -106,10 +106,30 @@ public class OwnerController {
         }
 
 
-
         books.save(book);
         model.addAttribute("createdBook", book);
-        return "bookDisplay";
+        model.addAttribute("library", books.findAll());
+        return "ownerHomepage";
     }
 
+    @GetMapping("/editBook")
+    public String editBook(@RequestParam(value = "bookId") long isbn , Model model){
+        System.out.println(isbn);
+        Book book = books.findById(isbn);
+        model.addAttribute("theBook", book);
+        return"editBook";
+    }
+    @PostMapping("/editBook")
+    public String submitEdit(@ModelAttribute Book editedBook, Model model){
+        Book bookToEdit = books.findById(editedBook.getISBN());
+        bookToEdit.setAuthor(editedBook.getAuthor());
+        bookToEdit.setPublisher(editedBook.getPublisher());
+        bookToEdit.setDescription(editedBook.getDescription());
+        bookToEdit.setInventory(editedBook.getInventory());
+        bookToEdit.setPrice(editedBook.getPrice());
+        bookToEdit.setName(editedBook.getName());
+        books.save(bookToEdit);
+        model.addAttribute("library", books.findAll());
+        return "ownerHomepage";
+    }
 }

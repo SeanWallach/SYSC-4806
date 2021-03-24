@@ -29,7 +29,6 @@ public class LoginController {
     //----------------------------------------Login page------------------------------------//
     @RequestMapping("/")
     public String login(Model model){
-        model.addAttribute("loginAttempt", new Owner());
         return "loginPage";
     }
 
@@ -45,10 +44,12 @@ public class LoginController {
 
         if(ownerAttempt != null) {
             if(ownerAttempt.getUsername().equals(username) && ownerAttempt.getPassword().equals(password)) {
+                model.addAttribute("loggedInOwner", ownerAttempt);
+                model.addAttribute("library", books.findAll());
                 return "ownerHomepage";
             }
         }
-        else if( userAttempt != null){
+        else if(userAttempt != null){
             if(userAttempt.getUsername().equals(username) && userAttempt.getPassword().equals(password)) {
                 ArrayList<Book> library = new ArrayList<Book>();
                 for (Book b : books.findAll()) {
@@ -60,5 +61,4 @@ public class LoginController {
         }
         return "loginPage";
     }
-
 }
