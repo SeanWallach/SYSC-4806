@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart page</title>
+</head>
+<body>
+<h1>Receipt</h1><br>
+<fieldset>
+    Purchases:<br>
+    <table>
+        <tr>
+            <th>Book Name</th>
+            <th>Picture</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        <tr th:each="book : ${Cart.getBooks()}">
+            <td th:text="${book.name}"></td>
+            <td th:text="${book.picture}"></td>
+            <td th:text="${book.price}"></td>
+            <td th:text="1"></td>
+        </tr>
+
+
+    </table>
+</fieldset>
+<fieldset>
+    Total:<br>
+    <td th:text="${Cart.getTotal()}"></td>
+</fieldset>
+
+</body>
+</html>
