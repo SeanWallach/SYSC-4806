@@ -19,7 +19,7 @@
             <p><label>Price: </label> <input type="number" name="cost" id="cost" th:placeholder="*{price}" th:field="*{price}"/></p>
             <p><label>Stock: </label><input type="number" th:placeholder="*{inventory}" id="inventory" th:field="*{inventory}" /></p>
             <p><label>Description: </label><textarea rows="6" style="resize:none" th:placeholder="*{description}" id="description" name="description" th:field="*{description}"></textarea></p>
-            <p><label>Picture: </label><img th:src="*{picture}" style="width:150px;height:150px;"><input type="file" name="image"/></p>
+            <p><label>Picture: </label><img th:src="*{picture}" style="width:150px;height:150px;" alt="No Picture Available"><input type="file" name="image"/></p>
             <input type="submit" id = "submit" value="Submit"></input>
         </form>
     </fieldset>
