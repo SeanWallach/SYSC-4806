@@ -63,9 +63,11 @@
             </tr>
 
         </table>
-        <form>
-            <button type="submit" formaction="/purchase">   Buy   </button>
+        <form action="#" th:action="@{/purchaseCart}" method="get">
+            <input type="hidden" th:value="${userID}" th:name="userID">
+            <input type="submit" value="Add"/>
         </form>
+
     </div>
 </fieldset>
 </body>

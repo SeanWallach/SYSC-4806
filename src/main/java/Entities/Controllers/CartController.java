@@ -31,18 +31,18 @@ public class CartController {
     //----------------------------------------Add Book to Cart------------------------------------//
     @RequestMapping("/addToCart")
     public String addToCart(@RequestParam("bookID") Long bookID,
-                            @ModelAttribute("userID") Long userID,
+                            @RequestParam("userID") Long userID,
                             Model model){
 
-        System.out.println(bookID);
-        System.out.println(userID);
+        //System.out.println(bookID);
+        //System.out.println(userID);
 
         Client client = users.findById(userID).get();
         Book book = books.findById(bookID).get();
 
         //if the cart has not been used yet, we create a cart for the client
         if(client.getCart() == null){
-            System.out.println("no cart");
+            //System.out.println("no cart");
             client.setCart(new Cart());
         }
         if(!client.getCart().getBooks().contains(book)){
@@ -55,10 +55,38 @@ public class CartController {
         carts.save(client.getCart());
         users.save(client);
 
+        System.out.println("cart using user ID = "+client.getId());
+
+        model.addAttribute("userID",client.getId());
         model.addAttribute("Cart", client.getCart().getBooks());
         model.addAttribute("library", books.findAll());
 
         return "userHomepage";
+    }
+    //----------------------------------------Add Book to Cart------------------------------------//
+    @GetMapping("/purchaseCart")
+    public String purchase(@RequestParam("userID")Long userID,
+                            Model model){
+
+        Client client = users.findById(userID).get();
+        Cart cart = client.getCart();
+
+        System.out.println(client);
+        System.out.println(cart);
+
+        double sum = 0;
+        for(Book b: cart.getBooks()){
+            sum += b.getPrice();
+        }
+        cart.setTotal(sum);
+
+
+        carts.save(cart);
+        users.save(client);
+
+        model.addAttribute("Cart", cart);
+        model.addAttribute("total", sum);
+        return "purchaseReceipt";
     }
 
 }

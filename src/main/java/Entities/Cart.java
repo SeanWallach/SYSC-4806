@@ -17,6 +17,9 @@ public class Cart {
     @OneToMany
     private List<Book> books;
 
+    private double total;
+
+
 
     public Cart(){ books = new ArrayList<Book>(); }
 
@@ -44,5 +47,14 @@ public class Cart {
     public int getCartSize() {
         return books.size();
     }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
 
 }

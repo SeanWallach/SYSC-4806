@@ -56,10 +56,8 @@ public class LoginController {
 
             if(userAttempt.getUsername().equals(username) && userAttempt.getPassword().equals(password)) {
                 model.addAttribute("userID",userAttempt.getId());
+                System.out.println("login user ID = "+userAttempt.getId());
                 model.addAttribute("library", books.findAll());
-                //model.addAttribute("Cart", new ArrayList<Book>());
-
-
                 return "userHomepage";
             }
         }
