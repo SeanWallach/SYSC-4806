@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+
 @Component
 @Entity
 public class Cart {
@@ -18,23 +19,18 @@ public class Cart {
     @OneToMany
     private List<Book> books;
 
+    private int[] quantities;
+
     private double total;
 
-    private ArrayList<Integer> quantities;
-    private HashMap<Book, Integer> bookMap;
-
-
-
     public Cart(){ books = new ArrayList<Book>();
-        quantities = new ArrayList<Integer>();
-        bookMap = new HashMap<Book, Integer>();
+        quantities = new int[10];
     }
 
     public Cart(long id){
         this.id = id;
         books = new ArrayList<Book>();
-        quantities = new ArrayList<Integer>();
-        bookMap = new HashMap<Book, Integer>();
+        quantities = new int[10];
     }
 
     public long getId() { return id;}
@@ -47,16 +43,22 @@ public class Cart {
         System.out.println("book: "+bookToAdd.getName());
         System.out.println("quantity: "+quantity);
 
-        if(!books.contains(bookToAdd)){ books.add(bookToAdd); }
-
-        /*if(!bookMap.containsKey(bookToAdd)){
-            bookMap.put(bookToAdd, quantity);
+        if(!books.contains(bookToAdd)){
+            books.add(bookToAdd);
+            for(int i = 0; i < quantities.length; i++){
+                if(quantities[i] == 0){
+                    quantities[i] = quantity;
+                    System.out.println("new book order successful");
+                    break;
+                }
+            }
         }
         else{
-            int count = bookMap.get(bookToAdd) + quantity;
-            bookMap.put(bookToAdd, count);
-        }*/
-        System.out.println("book Added successfully to hash");
+            int index = books.indexOf(bookToAdd);
+            quantities[index] += quantity;
+            System.out.println("repeat book order successful");
+        }
+
     }
 
     public boolean checkForBook(Book book) {
@@ -67,7 +69,6 @@ public class Cart {
         return books;
     }
 
-    public HashMap<Book, Integer> getBookMap(){return bookMap;}
 
     public int getCartSize() {
         return books.size();
@@ -79,6 +80,11 @@ public class Cart {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public int getQuantity(Book book){
+        int index = books.indexOf(book);
+        return quantities[index];
     }
 
 
