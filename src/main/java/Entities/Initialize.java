@@ -22,7 +22,7 @@ public class Initialize {
     public CommandLineRunner initialization(BookRepo bookRepo, OwnerRepo oRepo, ClientRepo uRepo){
         //This can be used to initialize DB with stuff on start up.
         //Will be used just for testing of JPA instantiations of objects.
-        return (args) -> {
+        /*return (args) -> {
             Owner testOwner = new Owner("testOwnerName");
             testOwner.setPassword("12345");
             oRepo.save(testOwner);
@@ -46,7 +46,7 @@ public class Initialize {
 
             Client findUser = uRepo.findByUsername("testUserName");
             log.info("User Added: " + findUser.getUsername());
-        };
+        };*/
     }
 
 }
