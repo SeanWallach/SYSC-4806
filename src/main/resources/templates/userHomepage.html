@@ -23,7 +23,7 @@
             </tr>
             <tr th:each="item : ${library}">
                 <td th:text="${item.name}"></td>
-                <td th:text="${item.picture}"></td>
+                <td> <img th:src="${item.picture}" style="width: 150px;height: 150px;" alt="No Picture Available"> </td>
                 <td th:text="${item.description}"></td>
                 <td th:text="${item.ISBN}"></td>
                 <td th:text="${item.author}"></td>
@@ -34,6 +34,7 @@
                     <form action="#" th:action="@{/addToCart}" method="get">
                         <input type="hidden" th:value="${item.ISBN}" th:name="bookID">
                         <input type="hidden" th:value="${userID}" th:name="userID">
+                        <input type="number"  th:value="1" th:name="bookQuantity"/>
 
                         <input type="submit" value="Add"/>
                     </form>
@@ -53,19 +54,17 @@
                 <th>Price</th>
                 <th>Quantity</th>
             </tr>
-            <tr th:each="book : ${Cart}">
+            <tr th:each="book : ${CartBooks}">
                 <td th:text="${book.name}"></td>
-                <td th:text="${book.picture}"></td>
+                <td> <img th:src="${book.picture}" style="width: 150px;height: 150px;" alt="No Picture Available"> </td>
                 <td th:text="${book.price}"></td>
-                <td>
-                    <input type="number"  th:value="1"/>
-                </td>
+                <!td th:text="${userCart.getBookMap().get(book)}"><!/td>
             </tr>
 
         </table>
         <form action="#" th:action="@{/purchaseCart}" method="get">
             <input type="hidden" th:value="${userID}" th:name="userID">
-            <input type="submit" value="Add"/>
+            <input type="submit" value="Purchase Cart"/>
         </form>
 
     </div>

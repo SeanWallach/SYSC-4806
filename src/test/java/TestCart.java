@@ -26,7 +26,7 @@ public class TestCart {
 
     @org.junit.jupiter.api.Test
     void testAddBook() {
-        cart.addBook(book);
+        cart.addBook(book, 1);
         assertTrue(cart.checkForBook(book));
     }
 

@@ -32,33 +32,35 @@ public class CartController {
     @RequestMapping("/addToCart")
     public String addToCart(@RequestParam("bookID") Long bookID,
                             @RequestParam("userID") Long userID,
+                            @RequestParam("bookQuantity") Long bookQuantity,
                             Model model){
 
-        //System.out.println(bookID);
-        //System.out.println(userID);
 
         Client client = users.findById(userID).get();
         Book book = books.findById(bookID).get();
 
         //if the cart has not been used yet, we create a cart for the client
         if(client.getCart() == null){
-            //System.out.println("no cart");
             client.setCart(new Cart());
         }
-        if(!client.getCart().getBooks().contains(book)){
-            client.addToCart(book);
+        if(bookQuantity > 0 && bookQuantity <= book.getInventory()){
+            System.out.println("bookQuantity = "+bookQuantity);
+            client.addToCart(book, bookQuantity.intValue());
+            book.setInventory(book.getInventory() - bookQuantity.intValue());
+
         }
         else{
-            System.out.println("Book is already in you're cart");
+            System.out.println("bookQuantity = "+bookQuantity);
+            System.out.println("Invalid Quantity of Books");
         }
 
         carts.save(client.getCart());
+
         users.save(client);
 
-        System.out.println("cart using user ID = "+client.getId());
-
         model.addAttribute("userID",client.getId());
-        model.addAttribute("Cart", client.getCart().getBooks());
+        model.addAttribute("CartBooks", client.getCart().getBooks());
+        model.addAttribute("userCart", client.getCart());
         model.addAttribute("library", books.findAll());
 
         return "userHomepage";

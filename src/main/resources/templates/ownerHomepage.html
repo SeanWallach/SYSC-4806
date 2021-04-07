@@ -21,7 +21,7 @@
                         <th>Publisher</th>
                         <th>Inventory</th>
                         <th>Price $</th>
-                        <th>Add to cart</th>
+                        <th>Edit Book</th>
                     </tr>
                     <tr th:each="item : ${library}" >
                         <form th:action="@{/editBook}"  method="get">
@@ -32,7 +32,7 @@
                             <td th:text="${item.publisher}"></td>
                             <td th:text="${item.inventory}"></td>
                             <td th:text="${item.price}"></td>
-                            <td> <input type="submit" th:name="bookId" th:value="${item.ISBN}"/></td>
+                            <td> <button type="submit" th:name="bookId" th:value="${item.ISBN}">Edit</button></td>
                         </form>
                     </tr>
                 </table>
