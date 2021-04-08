@@ -17,7 +17,7 @@ public class Initialize {
     public static void main(String[] args) {
         SpringApplication.run(Initialize.class, args);
     }
-
+/*
     @Bean
     public CommandLineRunner initialization(BookRepo bookRepo, OwnerRepo oRepo, ClientRepo uRepo){
         //This can be used to initialize DB with stuff on start up.
@@ -46,7 +46,6 @@ public class Initialize {
 
             Client findUser = uRepo.findByUsername("testUserName");
             log.info("User Added: " + findUser.getUsername());
-        };
-    }
-
+        };   }
+*/
 }
