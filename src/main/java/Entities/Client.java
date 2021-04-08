@@ -46,8 +46,8 @@ public class Client {
         return password;
     }
 
-    public void addToCart(Book book){
-        cart.addBook(book);
+    public void addToCart(Book book, int quantity){
+        cart.addBook(book, quantity);
     }
 
     public void setPassword(String password) {

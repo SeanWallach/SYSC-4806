@@ -46,7 +46,6 @@ public class Initialize {
 
             Client findUser = uRepo.findByUsername("testUserName");
             log.info("User Added: " + findUser.getUsername());
-        };
-    }*/
-
+        };   }
+*/
 }
