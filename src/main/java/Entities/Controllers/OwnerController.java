@@ -68,12 +68,16 @@ public class OwnerController {
     @PostMapping("/createBook")
     public String publishBook(@ModelAttribute Book book, @RequestParam(value="image") MultipartFile Multifile, Model model) throws FileNotFoundException {
 
-        String bucketName = "sysc4806-images";
+        String bucketName = "amazinbookstore-images";
 
         //Sets file name
         String key = book.getName();
 
-        BasicAWSCredentials awsCreds = new BasicAWSCredentials("AKIAQ2XALK5GHOQOALW2", "B/BB7tqVDUUmbHULvDigqySIJRtPyszhntl8hG/O");
+        String a_key = System.getenv("AWS_ACCESS_KEY_ID");
+        System.out.println(a_key);
+        String s_key = System.getenv("AWS_SECRET_ACCESS_KEY");
+
+        BasicAWSCredentials awsCreds = new BasicAWSCredentials(a_key, s_key);
 
         //Use this to store the images locally, or just have temp.png to overwrite each time
         //String localFile = "src/main/resources/uploads/" + book.getName() + ".png";
