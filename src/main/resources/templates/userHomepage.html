@@ -5,7 +5,14 @@
     <title>Amazin Main</title>
 </head>
 <body>
-<p>User Login Successful, Welcome to Book Store</p>
+<p>User Login Successful, Welcome to Amazin Store </p>
+
+
+<form form action="#" th:action="@{/filter}" method="get">>
+    <input type="hidden" th:value="${userID}" th:name="userID">
+    <input type="text" th:name="keyword">
+    <input type="submit" value="Search"/>
+</form>
 <fieldset>
     <p>------Library------</p>
     <div>

@@ -79,6 +79,8 @@ public class LoginController {
                 model.addAttribute("userID",userAttempt.getId());
                 System.out.println("login user ID = "+userAttempt.getId());
                 model.addAttribute("library", books.findAll());
+                model.addAttribute("CartBooks", userAttempt.getCart().getBooks());
+                model.addAttribute("userCart", userAttempt.getCart());
                 model.addAttribute("recommendationList", recommendationList);
                 return "userHomepage";
             }
