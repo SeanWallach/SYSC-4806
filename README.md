@@ -10,7 +10,7 @@ https://sysc-4806-aas-postgrest.herokuapp.com/
 
 ## Milestone 3 Tasks:
    
-   Finalize store functionality for a basic user experience.
+   Finalize store functionality for a basic user experience, by introduction searching, recommendations and purchases.
 
 ## Milestone 2 Tasks:
    
