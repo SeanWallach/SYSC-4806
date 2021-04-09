@@ -18,7 +18,7 @@ public class Cart {
     @OneToMany
     private List<Book> books;
 
-    private int[] quantities;
+    private transient int[] quantities;
 
     private double total;
 
