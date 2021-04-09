@@ -68,51 +68,51 @@ public class OwnerController {
     @PostMapping("/createBook")
     public String publishBook(@ModelAttribute Book book, @RequestParam(value="image") MultipartFile Multifile, Model model) throws FileNotFoundException {
 
-//        String bucketName = "amazinbookstore-images";
-//
-//        //Sets file name
-//        String key = book.getName();
-//
-//        String a_key = System.getenv("AWS_ACCESS_KEY_ID");
-//        System.out.println(a_key);
-//        String s_key = System.getenv("AWS_SECRET_ACCESS_KEY");
-//
-//        BasicAWSCredentials awsCreds = new BasicAWSCredentials(a_key, s_key);
-//
-//        //Use this to store the images locally, or just have temp.png to overwrite each time
-//        //String localFile = "src/main/resources/uploads/" + book.getName() + ".png";
-//        File file_s3 = new File("src/main/resources/uploads/temp.png");
-//        try (OutputStream os = new FileOutputStream(file_s3)) {
-//            os.write(Multifile.getBytes());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        try {
-//            AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
-//                    .withRegion("us-east-2")
-//                    .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
-//                    .build();
-//
-//
-//            PutObjectRequest request = new PutObjectRequest(bucketName, key, file_s3);
-//            ObjectMetadata metadata = new ObjectMetadata();
-//            metadata.setContentType("image/png");
-//            metadata.addUserMetadata("title", "TestTitle");
-//            request.setMetadata(metadata);
-//
-//            request.setCannedAcl(CannedAccessControlList.PublicRead);
-//
-//            s3Client.putObject(request);
-//
-//            URL image_url = s3Client.getUrl(bucketName, key);
-//
-//            book.setPicture(image_url);
-//
-//        } catch (SdkClientException e) {
-//            e.printStackTrace();
-//        }
-//
+        String bucketName = "amazinbookstore-images";
+
+        //Sets file name
+        String key = book.getName();
+
+        String a_key = System.getenv("AWS_ACCESS_KEY_ID");
+        System.out.println(a_key);
+        String s_key = System.getenv("AWS_SECRET_ACCESS_KEY");
+
+        BasicAWSCredentials awsCreds = new BasicAWSCredentials(a_key, s_key);
+
+        //Use this to store the images locally, or just have temp.png to overwrite each time
+        //String localFile = "src/main/resources/uploads/" + book.getName() + ".png";
+        File file_s3 = new File("src/main/resources/uploads/temp.png");
+        try (OutputStream os = new FileOutputStream(file_s3)) {
+            os.write(Multifile.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
+                    .withRegion("us-east-2")
+                    .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
+                    .build();
+
+
+            PutObjectRequest request = new PutObjectRequest(bucketName, key, file_s3);
+            ObjectMetadata metadata = new ObjectMetadata();
+            metadata.setContentType("image/png");
+            metadata.addUserMetadata("title", "TestTitle");
+            request.setMetadata(metadata);
+
+            request.setCannedAcl(CannedAccessControlList.PublicRead);
+
+            s3Client.putObject(request);
+
+            URL image_url = s3Client.getUrl(bucketName, key);
+
+            book.setPicture(image_url);
+
+        } catch (SdkClientException e) {
+            e.printStackTrace();
+        }
+
 
         books.save(book);
         model.addAttribute("createdBook", book);
