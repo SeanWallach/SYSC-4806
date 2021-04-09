@@ -13,8 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.thymeleaf.model.IStandaloneElementTag;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 @Controller
 public class UserController {
@@ -49,7 +51,53 @@ public class UserController {
         return "loginPage";
     }
 
+    @RequestMapping("/filter")
+    public String filter(Model model, @RequestParam(value="keyword") String keyword) {
 
+        ArrayList<Book> library = new ArrayList<Book>();            // where the search results are stored before being added to the model
 
+        for (Book book: books.findAll()) {
+
+            // non-string variables need to be converted to string for the matching algorithm
+            String inventory = Integer.toString(book.getInventory());
+            String ISBN = Long.toString(book.getISBN());
+            String price = Double.toString(book.getPrice());
+
+            // This for loop compiles the keyword, then tries to match it to every (useful) attribute of Book
+            if(Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(book.getName()).find()) {
+                System.out.println("added " + book.getName() + " to the search results based on Book name");
+                library.add(book);
+
+            } else if (Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(book.getDescription()).find()) {
+                System.out.println("added " + book.getName() + " to the search results based on Description");
+                library.add(book);
+
+            } else if (Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(book.getAuthor()).find()) {
+                System.out.println("added " + book.getName() + " to the search results based on Author");
+                library.add(book);
+
+            } else if (Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(book.getPublisher()).find()) {
+                System.out.println("added " + book.getName() + " to the search results based on publisher");
+                library.add(book);
+
+            } else if (Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(inventory).find()) {
+                System.out.println("added " + book.getName() + " to the search results based on inventory");
+                library.add(book);
+
+            } else if (Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(ISBN).find()) {
+                System.out.println("added " + book.getName() + " to the search results based on ISBN");
+                library.add(book);
+
+            } else if (Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(price).find()) {
+                System.out.println("added " + book.getName() + " to the search results based on price");
+                library.add(book);
+
+            }
+        }
+
+        model.addAttribute(library);
+        System.out.println("Added search results to library");
+        return "userHomepage";
+    }
 
 }
