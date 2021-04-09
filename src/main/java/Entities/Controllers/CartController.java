@@ -62,8 +62,17 @@ public class CartController {
         users.save(client);
 
         for (Book b: books.findAll()) {
+
+            if (client.checkAuthorHistory(b)) {
+                if (!recommendationList.contains(b)) {
+                    recommendationList.add(b);
+                }
+            }
+
             if (!client.checkBookInHistory(b)) {
-                recommendationList.add(b);
+                if (!recommendationList.contains(b)) {
+                    recommendationList.add(b);
+                }
             }
         }
 

@@ -68,5 +68,14 @@ public class Client {
 
     public boolean checkBookInHistory(Book book) {return bookHistory.contains(book);}
 
+    public boolean checkAuthorHistory(Book book) {
+
+        for (Book b: bookHistory){
+            if (book.getAuthor() == b.getAuthor()) { return true;}
+
+        }
+        return false;
+    }
+
 
 }
