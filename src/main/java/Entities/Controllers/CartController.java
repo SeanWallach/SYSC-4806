@@ -103,6 +103,7 @@ public class CartController {
         }
         cart.setTotal(sum);
 
+        cart.reset();
 
         carts.save(cart);
         users.save(client);

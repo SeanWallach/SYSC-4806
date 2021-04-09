@@ -15,7 +15,7 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToMany
+    @ManyToMany
     private List<Book> books;
 
     private transient int[] quantities;
@@ -84,6 +84,11 @@ public class Cart {
     public int getQuantity(Book book){
         int index = books.indexOf(book);
         return quantities[index];
+    }
+
+    public void reset(){
+        books = new ArrayList<Book>();
+        quantities = new int[10];
     }
 
 
