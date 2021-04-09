@@ -45,6 +45,38 @@
 </fieldset>
 
 <fieldset>
+    <p>-----Recommendation-----</p>
+    <div id="recommendation">
+
+        <p th:if="${recommendationList.isEmpty()}">You've purchased everything!</p>
+
+        <table th:unless="${recommendationList.isEmpty()}">
+            <tr>
+                <th>Book Name</th>
+                <th>Picture</th>
+                <th>Description</th>
+                <th>ISBN</th>
+                <th>Author</th>
+                <th>Publisher</th>
+                <th>Inventory</th>
+                <th>Price $</th>
+            </tr>
+            <tr>
+                <td th:text="${recommendationList.get(0).name}"></td>
+                <td> <img th:src="${recommendationList.get(0).picture}" style="width: 150px;height: 150px;" alt="No Picture Available"> </td>
+                <td th:text="${recommendationList.get(0).description}"></td>
+                <td th:text="${recommendationList.get(0).ISBN}"></td>
+                <td th:text="${recommendationList.get(0).author}"></td>
+                <td th:text="${recommendationList.get(0).publisher}"></td>
+                <td th:text="${recommendationList.get(0).inventory}"></td>
+                <td th:text="${recommendationList.get(0).price}"></td>
+            </tr>
+        </table>
+
+    </div>
+</fieldset>
+
+<fieldset>
     <p>------Cart------</p>
     <div>
         <table>

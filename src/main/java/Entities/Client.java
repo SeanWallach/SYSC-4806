@@ -3,6 +3,7 @@ package Entities;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -15,6 +16,9 @@ public class Client {
 
     private String username;
     private String password;
+
+    @OneToMany
+    private List<Book> bookHistory = new ArrayList<Book>();
 
     @OneToOne
     private Cart cart;
@@ -57,4 +61,12 @@ public class Client {
     public void setCart(Cart cart) { this.cart = cart;}
 
     public Cart getCart() {return cart;}
+
+    public void addBooktoHistory(Book book) {
+        if(!bookHistory.contains(book)) {bookHistory.add(book);}
+    }
+
+    public boolean checkBookInHistory(Book book) {return bookHistory.contains(book);}
+
+
 }

@@ -26,6 +26,8 @@ public class LoginController {
     @Autowired
     private ClientRepo users;
 
+    private List<Book> recommendationList = new ArrayList<Book>();
+
 
     //----------------------------------------Login page------------------------------------//
     @RequestMapping("/")
@@ -55,9 +57,19 @@ public class LoginController {
         else if( userAttempt != null){
 
             if(userAttempt.getUsername().equals(username) && userAttempt.getPassword().equals(password)) {
+
+
+
+                for (Book b: books.findAll()) {
+                    if (!userAttempt.checkBookInHistory(b)) {
+                        recommendationList.add(b);
+                    }
+                }
+
                 model.addAttribute("userID",userAttempt.getId());
                 System.out.println("login user ID = "+userAttempt.getId());
                 model.addAttribute("library", books.findAll());
+                model.addAttribute("recommendationList", recommendationList);
                 return "userHomepage";
             }
         }
