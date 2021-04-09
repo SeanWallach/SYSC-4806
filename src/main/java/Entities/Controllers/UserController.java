@@ -52,7 +52,9 @@ public class UserController {
     }
 
     @RequestMapping("/filter")
-    public String filter(Model model, @RequestParam(value="keyword") String keyword) {
+    public String filter(Model model,
+                         @RequestParam(value="keyword") String keyword,
+                         @RequestParam(value="userID") long userID) {
 
         ArrayList<Book> library = new ArrayList<Book>();            // where the search results are stored before being added to the model
 
@@ -91,11 +93,27 @@ public class UserController {
             } else if (Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(price).find()) {
                 System.out.println("added " + book.getName() + " to the search results based on price");
                 library.add(book);
+            }
+        }
+        ArrayList<Book> recommendationList = new ArrayList<Book>();
+        Client user = users.findById(userID);
+        for (Book b: books.findAll()) {
+            if (user.checkAuthorHistory(b)){
+                if (!recommendationList.contains(b)) {
+                    recommendationList.add(b);
+                }
+            }
 
+            if (!user.checkBookInHistory(b)) {
+                if (!recommendationList.contains(b)) {
+                    recommendationList.add(b);
+                }
             }
         }
 
-        model.addAttribute(library);
+        model.addAttribute("userID",userID);
+        model.addAttribute("library", library);
+        model.addAttribute("recommendationList", recommendationList);
         System.out.println("Added search results to library");
         return "userHomepage";
     }
