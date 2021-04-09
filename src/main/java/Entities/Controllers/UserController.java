@@ -113,6 +113,8 @@ public class UserController {
 
         model.addAttribute("userID",userID);
         model.addAttribute("library", library);
+        model.addAttribute("CartBooks", user.getCart().getBooks());
+        model.addAttribute("userCart", user.getCart());
         model.addAttribute("recommendationList", recommendationList);
         System.out.println("Added search results to library");
         return "userHomepage";
