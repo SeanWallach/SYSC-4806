@@ -6,6 +6,7 @@ import Entities.Book;
 import Entities.Cart;
 import Entities.Owner;
 import Entities.Repositories.BookRepo;
+import Entities.Repositories.CartRepo;
 import Entities.Repositories.ClientRepo;
 import Entities.Client;
 import Entities.Repositories.OwnerRepo;
@@ -28,7 +29,7 @@ public class UserController {
     private BookRepo books;
     
     @Autowired
-    private OwnerRepo owners;
+    private CartRepo carts;
 
 
     //-----------------------------------User creation------------------------------------------//
@@ -44,6 +45,9 @@ public class UserController {
                               @RequestParam(value="password") String password) {
 
         Client user = new Client();
+        Cart cart = new Cart();
+        carts.save(cart);
+        user.setCart(cart);
         user.setUsername(username);
         user.setPassword(password);
         users.save(user);
