@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SYSC-4806" />
+        <module name="SYCS 4806 Group Project" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="SYCS 4806 Group Project" options="-parameters" />
       <module name="SYSC-4806" options="-parameters" />
     </option>
   </component>

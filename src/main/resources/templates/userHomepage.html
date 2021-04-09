@@ -5,8 +5,14 @@
     <title>Amazin Main</title>
 </head>
 <body>
-<p>User Login Successful, Welcome to Book Store</p>
-<fieldset>
+<p>User Login Successful, Welcome to Book Store </p>
+
+
+<form form action="#" th:action="@{/filter}" method="get">>
+    <input type="text" th:value="${keyword}" th:name="keyword">
+    <input type="submit" value="Search"/>
+</form>
+
     <p>------Library------</p>
     <div>
         <table>
