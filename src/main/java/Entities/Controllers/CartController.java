@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -27,6 +28,8 @@ public class CartController {
 
     @Autowired
     private ClientRepo users;
+
+    private List<Book> recommendationList = new ArrayList<Book>();
 
     //----------------------------------------Add Book to Cart------------------------------------//
     @RequestMapping("/addToCart")
@@ -58,10 +61,17 @@ public class CartController {
 
         users.save(client);
 
+        for (Book b: books.findAll()) {
+            if (!client.checkBookInHistory(b)) {
+                recommendationList.add(b);
+            }
+        }
+
         model.addAttribute("userID",client.getId());
         model.addAttribute("CartBooks", client.getCart().getBooks());
         model.addAttribute("userCart", client.getCart());
         model.addAttribute("library", books.findAll());
+        model.addAttribute("recommendationList", recommendationList);
 
         return "userHomepage";
     }
@@ -79,6 +89,8 @@ public class CartController {
         double sum = 0;
         for(Book b: cart.getBooks()){
             sum += b.getPrice();
+
+            client.addBooktoHistory(b);
         }
         cart.setTotal(sum);
 
