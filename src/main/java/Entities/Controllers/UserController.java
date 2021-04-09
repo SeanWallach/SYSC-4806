@@ -56,23 +56,31 @@ public class UserController {
         ArrayList<Book> library = new ArrayList<Book>();
 
         for (Book book: books.findAll()) {
-            // This method compiles keyword, then tries to match it to every (useful) attribute of Book
-            boolean b = Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(book.getName()).find();
-            b = Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(book.getAuthor()).find();
-            b = Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(book.getPublisher()).find();
-            b = Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(book.getDescription()).find();
-            b = Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(book.getName()).find();
-            b = Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(book.getName()).find();
-
-            // If any of the above is a match, add the book to the library
-            if (b) {
-                System.out.println("added " + book.getName() + " to the search results");
+            // This for loop compiles the keyword, then tries to match it to every (useful) attribute of Book
+            if(Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(book.getName()).find()) {
+                System.out.println("added " + book.getName() + " to the search results based on Book name");
                 library.add(book);
-            }
-            model.addAttribute("library",library);
+            } else if (Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(book.getDescription()).find()) {
+                System.out.println("added " + book.getName() + " to the search results based on Description");
+                library.add(book);
+            } else if (Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(book.getAuthor()).find()) {
+                System.out.println("added " + book.getName() + " to the search results based on Author");
+                library.add(book);
+            } else if (Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(book.getPublisher()).find()) {
+                System.out.println("added " + book.getName() + " to the search results based on publisher");
+                library.add(book);
+            };
 
+            // This part needs to be completed, having trouble getting integers to filter
+//            String inventory = Integer.toString(book.getInventory());
+//
+//            b = Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(inventory.find());
+//            b = Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(book.getISBN().toString()).find();
+//            b = Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE).matcher(book.getPrice().toString()).find();
 
         }
+        model.addAttribute(library);
+        System.out.println("Added search results to library");
         return "userHomepage";
     }
 
