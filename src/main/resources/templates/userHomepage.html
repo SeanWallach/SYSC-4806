@@ -90,7 +90,8 @@
                 <td th:text="${book.name}"></td>
                 <td> <img th:src="${book.picture}" style="width: 150px;height: 150px;" alt="No Picture Available"> </td>
                 <td th:text="${book.price}"></td>
-                <!td th:text="${userCart.getBookMap().get(book)}"><!/td>
+                <td th:text="${userCart.getQuantity(book)}"></td>
+
             </tr>
 
         </table>

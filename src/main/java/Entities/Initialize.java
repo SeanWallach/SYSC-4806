@@ -17,8 +17,8 @@ public class Initialize {
     public static void main(String[] args) {
         SpringApplication.run(Initialize.class, args);
     }
-/*
-    @Bean
+
+    /*@Bean
     public CommandLineRunner initialization(BookRepo bookRepo, OwnerRepo oRepo, ClientRepo uRepo){
         //This can be used to initialize DB with stuff on start up.
         //Will be used just for testing of JPA instantiations of objects.

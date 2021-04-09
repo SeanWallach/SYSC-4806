@@ -78,7 +78,7 @@ public class CartController {
     //----------------------------------------Add Book to Cart------------------------------------//
     @GetMapping("/purchaseCart")
     public String purchase(@RequestParam("userID")Long userID,
-                            Model model){
+                           Model model){
 
         Client client = users.findById(userID).get();
         Cart cart = client.getCart();
@@ -87,9 +87,9 @@ public class CartController {
         System.out.println(cart);
 
         double sum = 0;
+        int i = 0;
         for(Book b: cart.getBooks()){
-            sum += b.getPrice();
-
+            sum += b.getPrice() * cart.getQuantity(b);
             client.addBooktoHistory(b);
         }
         cart.setTotal(sum);
@@ -102,5 +102,16 @@ public class CartController {
         model.addAttribute("total", sum);
         return "purchaseReceipt";
     }
+    //----------------------------------------Return to Shop------------------------------------//
+    @RequestMapping("/back")
+    public String back(@RequestParam("userID") Long userID, Model model){
 
+        Client client = users.findById(userID).get();
+
+        model.addAttribute("userID",client.getId());
+        model.addAttribute("CartBooks", client.getCart().getBooks());
+        model.addAttribute("userCart", client.getCart());
+        model.addAttribute("library", books.findAll());
+        return "userHomepage";
+    }
 }
