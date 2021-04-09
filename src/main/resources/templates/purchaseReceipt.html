@@ -11,15 +11,14 @@
     <table>
         <tr>
             <th>Book Name</th>
-            <th>Picture</th>
             <th>Price</th>
             <th>Quantity</th>
         </tr>
         <tr th:each="book : ${Cart.getBooks()}">
             <td th:text="${book.name}"></td>
-            <td th:text="${book.picture}"></td>
             <td th:text="${book.price}"></td>
-            <td th:text="1"></td>
+            <td th:text="${Cart.getQuantity(book)}"></td>
+
         </tr>
 
 
@@ -29,6 +28,7 @@
     Total:<br>
     <td th:text="${Cart.getTotal()}"></td>
 </fieldset>
+
 
 </body>
 </html>
