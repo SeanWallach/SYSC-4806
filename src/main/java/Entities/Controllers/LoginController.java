@@ -61,8 +61,18 @@ public class LoginController {
 
 
                 for (Book b: books.findAll()) {
+
+                    if (userAttempt.checkAuthorHistory(b)){
+                        if (!recommendationList.contains(b)) {
+                            recommendationList.add(b);
+                        }
+                    }
+
                     if (!userAttempt.checkBookInHistory(b)) {
-                        recommendationList.add(b);
+                        if (!recommendationList.contains(b)) {
+                            recommendationList.add(b);
+                        }
+
                     }
                 }
 
